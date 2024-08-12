@@ -153,30 +153,30 @@ export function insertionSort(arr) {
 // sortingSteps.js
 
 export const bubbleSortSteps = [
-    { code: "Step 1: Compare adjacent elements in the array." },
-    { code: "Step 2: If the first element is greater than the second element, swap them." },
-    { code: "Step 3: Repeat steps 1 and 2 until no swaps are needed." },
-    { code: "Step 4: Move to the next pair of elements and repeat steps 1-3." },
-    { code: "Step 5: Continue this process until the entire array is sorted." },
-    { code: "Step 6: The array is now sorted." }
+    { code: "1. Compare adjacent elements in the array." },
+    { code: "2. If the first element is greater than the second element, swap them." },
+    { code: "3. Repeat steps 1 and 2 until no swaps are needed." },
+    { code: "4. Move to the next pair of elements and repeat steps 1-3." },
+    { code: "5. Continue this process until the entire array is sorted." },
+    { code: "6. The array is now sorted." }
 ];
 
 
 export const selectionSortSteps = [
-    { code: "Step 1: Find the smallest element in the unsorted portion of the array." },
-    { code: "Step 2: Swap it with the first element of the unsorted portion." },
-    { code: "Step 3: Repeat steps 1 and 2 for the remaining unsorted elements." },
-    { code: "Step 4: Move the boundary of the unsorted portion by one element." },
-    { code: "Step 5: Repeat steps 1-4 until the entire array is sorted." },
-    { code: "Step 6: The array is now sorted." }
+    { code: "1. Find the smallest element in the unsorted portion of the array." },
+    { code: "2. Swap it with the first element of the unsorted portion." },
+    { code: "3. Repeat steps 1 and 2 for the remaining unsorted elements." },
+    { code: "4. Move the boundary of the unsorted portion by one element." },
+    { code: "5. Repeat steps 1-4 until the entire array is sorted." },
+    { code: "6. The array is now sorted." }
 ];
 
 
 export const insertionSortSteps = [
-    { code: "Step 1: Start with the second element and compare it with the elements before it." },
-    { code: "Step 2: If the current element is smaller, move the larger elements one position to the right." },
-    { code: "Step 3: Insert the current element into its correct position in the sorted subarray." },
-    { code: "Step 4: Repeat steps 1-3 until all elements are sorted." },
-    { code: "Step 5: The array is now sorted." }
+    { code: "1. Start with the second element and compare it with the elements before it." },
+    { code: "2. If the current element is smaller, move the larger elements one position to the right." },
+    { code: "3. Insert the current element into its correct position in the sorted subarray." },
+    { code: "4. Repeat steps 1-3 until all elements are sorted." },
+    { code: "5. The array is now sorted." }
 ];
 

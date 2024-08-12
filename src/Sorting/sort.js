@@ -19,8 +19,9 @@ class Sort extends Component {
         isRunning: false,
         algo1: 0,
         algo2: 0,
-        animateToggle: false,
         sidePanelOpen: false,
+        algorithmName1: "",
+        algorithmName2: "",
         algorithmSteps1: [],
         algorithmSteps2: [],
         timeComplexity: 'O(n^2)', // Default time complexity
@@ -33,13 +34,6 @@ class Sort extends Component {
         this.handleRandomize();
     }
 
-    triggerToggleAnimation = () => {
-        this.setState({ animateToggle: true });
-        setTimeout(() => {
-            this.setState({ animateToggle: false });
-        }, 3000);
-    };
-
     toggleSidePanel = () => {
         this.setState((prevState) => ({ sidePanelOpen: !prevState.sidePanelOpen }));
     };
@@ -47,9 +41,9 @@ class Sort extends Component {
     render() {
         return (
             <React.Fragment>
-                <Navbar currentPage="Sorting Algorithms" 
-                info="sort/info"/>
-                <button className={`side-panel-toggle ${this.state.animateToggle ? 'animate' : ''}`} onClick={this.toggleSidePanel}>
+                <Navbar currentPage="Sorting Algorithms"
+                    info="sort/info" />
+                <button className="side-panel-toggle" onClick={this.toggleSidePanel}>
                     <ListRounded className='sidepanel-icon' />
                     View steps
                 </button>
@@ -58,6 +52,8 @@ class Sort extends Component {
                     onClose={this.toggleSidePanel}
                     algorithmSteps1={this.state.algorithmSteps1}
                     algorithmSteps2={this.state.algorithmSteps2}
+                    algorithmName1={this.state.algorithmName1}
+                    algorithmName2={this.state.algorithmName2}
                     isDouble={this.state.doubles}
                 />
                 <Menu
@@ -135,6 +131,7 @@ class Sort extends Component {
     handleSort = async () => {
         this.setState({ isRunning: true, algorithmSteps1: [], algorithmSteps2: [] });
         let steps1, steps2;
+        let algorithmName1, algorithmName2;
         let algorithmSteps1, algorithmSteps2;
         let startTime1, endTime1, startTime2, endTime2;
         let timeComplexity1 = '', timeComplexity2 = '';
@@ -146,6 +143,7 @@ class Sort extends Component {
                 startTime1 = performance.now();
                 steps1 = bubbleSort(this.state.rects); // Call bubbleSort to get steps
                 endTime1 = performance.now();
+                algorithmName1 = "Bubble sort";
                 algorithmSteps1 = bubbleSortSteps; // Set algorithmSteps to bubbleSortSteps
                 timeComplexity1 = `${(endTime1 - startTime1).toFixed(2)} ms`; // Update time complexity
                 spaceUsage1 = this.state.rects.length * 4; // Assuming each rect object takes 4 bytes
@@ -155,6 +153,7 @@ class Sort extends Component {
                 startTime1 = performance.now();
                 steps1 = selectionSort(this.state.rects); // Call selectionSort to get steps
                 endTime1 = performance.now();
+                algorithmName1 = "Seletion sort";
                 algorithmSteps1 = selectionSortSteps; // Set algorithmSteps to selectionSortSteps
                 timeComplexity1 = `${(endTime1 - startTime1).toFixed(2)} ms`; // Update time complexity
                 spaceUsage1 = this.state.rects.length * 4; // Assuming each rect object takes 4 bytes
@@ -164,6 +163,7 @@ class Sort extends Component {
                 startTime1 = performance.now();
                 steps1 = insertionSort(this.state.rects); // Call insertionSort to get steps
                 endTime1 = performance.now();
+                algorithmName1 = "Insertion sort";
                 algorithmSteps1 = insertionSortSteps; // Set algorithmSteps to insertionSortSteps
                 timeComplexity1 = `${(endTime1 - startTime1).toFixed(2)} ms`; // Update time complexity
                 spaceUsage1 = this.state.rects.length * 4; // Assuming each rect object takes 4 bytes
@@ -173,6 +173,7 @@ class Sort extends Component {
                 startTime1 = performance.now();
                 steps1 = quickSort(this.state.rects); // Call insertionSort to get steps
                 endTime1 = performance.now();
+                algorithmName1 = "Quick sort";
                 algorithmSteps1 = quickSortSteps; // Set algorithmSteps to quickSortSteps
                 timeComplexity1 = `${(endTime1 - startTime1).toFixed(2)} ms`; // Update time complexity
                 spaceUsage1 = this.state.rects.length * 4; // Assuming each rect object takes 4 bytes
@@ -186,6 +187,7 @@ class Sort extends Component {
         // Update state with real-time and space complexity
         this.setState({
             algorithmSteps1,
+            algorithmName1,
             realTimeComplexity: timeComplexity1,
             realSpaceComplexity: spaceComplexity1,
         });
@@ -196,6 +198,7 @@ class Sort extends Component {
                     startTime2 = performance.now();
                     steps2 = bubbleSort(this.state.rects2); // Call bubbleSort to get steps
                     endTime2 = performance.now();
+                    algorithmName2 = "Bubble sort";
                     algorithmSteps2 = bubbleSortSteps; // Set algorithmSteps to bubbleSortSteps
                     timeComplexity2 = `${(endTime2 - startTime2).toFixed(2)} ms`; // Update time complexity
                     spaceUsage2 = this.state.rects2.length * 4; // Assuming each rect object takes 4 bytes
@@ -205,6 +208,7 @@ class Sort extends Component {
                     startTime2 = performance.now();
                     steps2 = selectionSort(this.state.rects2); // Call selectionSort to get steps
                     endTime2 = performance.now();
+                    algorithmName2 = "Seletion sort";
                     algorithmSteps2 = selectionSortSteps; // Set algorithmSteps to selectionSortSteps
                     timeComplexity2 = `${(endTime2 - startTime2).toFixed(2)} ms`; // Update time complexity
                     spaceUsage2 = this.state.rects2.length * 4; // Assuming each rect object takes 4 bytes
@@ -214,6 +218,7 @@ class Sort extends Component {
                     startTime2 = performance.now();
                     steps2 = insertionSort(this.state.rects2); // Call insertionSort to get steps
                     endTime2 = performance.now();
+                    algorithmName2 = "Insertion sort";
                     algorithmSteps2 = insertionSortSteps; // Set algorithmSteps to insertionSortSteps
                     timeComplexity2 = `${(endTime2 - startTime2).toFixed(2)} ms`; // Update time complexity
                     spaceUsage2 = this.state.rects2.length * 4; // Assuming each rect object takes 4 bytes
@@ -223,6 +228,7 @@ class Sort extends Component {
                     startTime2 = performance.now();
                     steps2 = quickSort(this.state.rects2); // Call quickSort to get steps
                     endTime2 = performance.now();
+                    algorithmName2 = "Quick sort";
                     algorithmSteps2 = quickSortSteps; // Set algorithmSteps to quickSortSteps
                     timeComplexity2 = `${(endTime2 - startTime2).toFixed(2)} ms`; // Update time complexity
                     spaceUsage2 = this.state.rects2.length * 4; // Assuming each rect object takes 4 bytes
@@ -235,6 +241,7 @@ class Sort extends Component {
 
             this.setState({
                 algorithmSteps2,
+                algorithmName2,
                 realTimeComplexity: `${timeComplexity1} / ${timeComplexity2}`,
                 realSpaceComplexity: `${spaceComplexity1} / ${spaceComplexity2}`,
             });

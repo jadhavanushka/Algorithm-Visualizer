@@ -20,9 +20,9 @@ class RecursiveSort extends Component {
         speed: 50,
         isRunning: false,
         algo: 0,
-        animateToggle: false,
         sidePanelOpen: false, // State variable for side panel visibility
         algorithmSteps: [],
+        algorithmName:"",
         timeComplexity: '',
         spaceComplexity: '',
         realTimeComplexity: '',
@@ -42,44 +42,41 @@ class RecursiveSort extends Component {
     setAlgorithmSteps = (selectedAlgo) => {
         // Define your algorithm steps here
         let steps = [];
+        let algorithmName="";
         let timeComplexity = '';
         let spaceComplexity = '';
         switch (parseInt(selectedAlgo)) {
             case 0:
                 steps = mergeSortSteps;
+                algorithmName = "Merge sort";
                 timeComplexity = 'O(n log n)';
                 spaceComplexity = 'O(n)';
                 break;
 
             case 1:
                 steps = heapSortSteps;
+                algorithmName = "Heap sort";
                 timeComplexity = 'O(n log n)';
                 spaceComplexity = 'O(1)';
                 break;
             case 2:
                 steps = quickSortSteps;
+                algorithmName = "Quick sort";
                 timeComplexity = 'O(n log n) average, O(n^2) worst';
                 spaceComplexity = 'O(log n)';
                 break;
             default:
                 break
         }
-        this.setState({ algorithmSteps: steps, timeComplexity, spaceComplexity });
+        this.setState({ algorithmSteps: steps, algorithmName, timeComplexity, spaceComplexity });
     }
-
-    triggerToggleAnimation = () => {
-        this.setState({ animateToggle: true });
-        setTimeout(() => {
-            this.setState({ animateToggle: false });
-        }, 3000);
-    };
 
     toggleSidePanel = () => {
         this.setState(prevState => ({ sidePanelOpen: !prevState.sidePanelOpen }));
     };
 
     render() {
-        const { timeComplexity, spaceComplexity, realTimeComplexity, realSpaceComplexity } = this.state;
+        const { timeComplexity, spaceComplexity, realTimeComplexity, realSpaceComplexity, algorithmName } = this.state;
         return (
             <React.Fragment>
                 <Navbar currentPage="Recursive Sort" 
@@ -96,7 +93,7 @@ class RecursiveSort extends Component {
 
                 {/* Toggle button for the side panel */}
 
-                <button className={`side-panel-toggle ${this.state.animateToggle ? 'animate' : ''}`} onClick={this.toggleSidePanel}>
+                <button className="side-panel-toggle " onClick={this.toggleSidePanel}>
                     <ListRounded className='sidepanel-icon' />
                     View steps
                 </button>
@@ -106,6 +103,7 @@ class RecursiveSort extends Component {
                     algorithmSteps={this.state.algorithmSteps}
                     isOpen={this.state.sidePanelOpen}
                     onClose={this.toggleSidePanel}
+                    algorithmName={algorithmName}
                 />
 
                 <div className='justify-content-center'>
@@ -157,7 +155,6 @@ class RecursiveSort extends Component {
 
     handleSort = async () => {
         this.setState({ isRunning: true });
-        this.triggerToggleAnimation();
 
         let steps;
         let rects2;

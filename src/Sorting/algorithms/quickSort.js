@@ -19,10 +19,10 @@ export function quickSort(rects2){
 
 // Algorithm steps for Quick Sort
 export const quickSortSteps = [
-    { code: "Step 1: Choose a pivot element from the array." },
-    { code: "Step 2: Partition the array around the pivot element." },
-    { code: "Step 3: Recursively apply Quick Sort on the left and right partitions." },
-    { code: "Step 4: Repeat until the entire array is sorted." }
+    { code: "1. Choose a pivot element from the array." },
+    { code: "2. Partition the array around the pivot element." },
+    { code: "3. Recursively apply Quick Sort on the left and right partitions." },
+    { code: "4. Repeat until the entire array is sorted." }
     // Add more steps if needed
 ];
 

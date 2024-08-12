@@ -16,14 +16,14 @@ class ConvexHull extends Component {
         isRunning: false,
         speed: 100,
         number: 50,
-        animateToggle: false,
         sidePanelOpen: false, // State to manage side panel visibility
+        algorithmName: "Graham Scan",
         algorithmSteps: [
-            { code: 'Step 1: Choose the point with the lowest y-coordinate. If there are multiple points, choose the leftmost one.' },
-            { code: 'Step 2: Sort the remaining points by the polar angle they make with the chosen point.' },
-            { code: 'Step 3: Iterate through the sorted points and add them to the convex hull if they make a counterclockwise turn with the last two points on the hull.' },
-            { code: 'Step 4: Continue adding points until you reach the starting point again.' },
-            { code: 'Step 5: The set of points added forms the convex hull.' }
+            { code: '1. Choose the point with the lowest y-coordinate. If there are multiple points, choose the leftmost one.' },
+            { code: '2. Sort the remaining points by the polar angle they make with the chosen point.' },
+            { code: '3. Iterate through the sorted points and add them to the convex hull if they make a counterclockwise turn with the last two points on the hull.' },
+            { code: '4. Continue adding points until you reach the starting point again.' },
+            { code: '5. The set of points added forms the convex hull.' }
         ],
         timeComplexity: 'O(N log N)', // Default time complexity
         spaceComplexity: 'O(N)', // Default space complexity
@@ -52,22 +52,22 @@ class ConvexHull extends Component {
     }
 
     render() {
-        const { timeComplexity, spaceComplexity, realTimeComplexity, realSpaceComplexity, isRunning } = this.state;
+        const { timeComplexity, spaceComplexity, realTimeComplexity, realSpaceComplexity, algorithmName, isRunning } = this.state;
         return (
             <div>
-                <Navbar currentPage="Convex Hull" 
-                info="convexhull/info"/>
+                <Navbar currentPage="Convex Hull"
+                    info="convexhull/info" />
 
                 {/* Rest of the component */}
                 {/* Side panel toggle button */}
-                <button className={`side-panel-toggle ${this.state.animateToggle ? 'animate' : ''}`} onClick={this.toggleSidePanel}>
+                <button className="side-panel-toggle" onClick={this.toggleSidePanel}>
                     <ListRounded className='sidepanel-icon' />
                     View steps
                 </button>
 
 
                 {/* Render the side panel component */}
-                <SidePanel isOpen={this.state.sidePanelOpen} onClose={this.toggleSidePanel} algorithmSteps={this.state.algorithmSteps} />
+                <SidePanel isOpen={this.state.sidePanelOpen} onClose={this.toggleSidePanel} algorithmSteps={this.state.algorithmSteps} algorithmName={algorithmName} />
 
                 <Menu
                     onRefresh={this.handleRefreshDots}
@@ -132,18 +132,9 @@ class ConvexHull extends Component {
         this.setState(prevState => ({ sidePanelOpen: !prevState.sidePanelOpen }));
     }
 
-    triggerToggleAnimation = () => {
-        this.setState({ animateToggle: true });
-        setTimeout(() => {
-            this.setState({ animateToggle: false });
-        }, 3000);
-    };
-
-
     handleVisualize = () => {
         console.log(this.state.algorithmSteps);
         this.setState({ isRunning: true }); // Open side panel when visualizing
-        this.triggerToggleAnimation();
     }
 
     handleTurnOff = () => {

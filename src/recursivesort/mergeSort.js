@@ -11,11 +11,11 @@ export default function mergeSort(rects2){
 
 // Algorithm steps for Merge Sort
 export const mergeSortSteps = [
-    { code: "Step 1: Divide the array into two halves." },
-    { code: "Step 2: Recursively apply Merge Sort on the left half." },
-    { code: "Step 3: Recursively apply Merge Sort on the right half." },
-    { code: "Step 4: Merge the two sorted halves into a single sorted array." },
-    { code: "Step 5: Combine the sorted halves into the original array." }
+    { code: "1. Divide the array into two halves." },
+    { code: "2. Recursively apply Merge Sort on the left half." },
+    { code: "3. Recursively apply Merge Sort on the right half." },
+    { code: "4. Merge the two sorted halves into a single sorted array." },
+    { code: "5. Combine the sorted halves into the original array." }
     // Add more steps if needed
 ];
 

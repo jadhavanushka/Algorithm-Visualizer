@@ -206,7 +206,6 @@ export function steps(operation) {
       ]
     case "inorderTraversal":
       return [
-        { code: 'Inorder Traversal:' },
         { code: '1: Follow step 2 to 4 until root != NULL' },
         { code: '2: Inorder (root -> left)' },
         { code: '3: Write root -> data' },
@@ -214,7 +213,6 @@ export function steps(operation) {
       ]
     case "preorderTraversal":
       return [
-        { code: 'Preorder Traversal:' },
         { code: '1: Follow step 2 to 4 until root != NULL' },
         { code: '2: Write root -> data' },
         { code: '3: Preorder (root -> left)' },
@@ -222,7 +220,6 @@ export function steps(operation) {
       ]
     case "postorderTraversal":
       return [
-        { code: 'Postorder Traversal:' },
         { code: '1: Follow step 2 to 4 until root != NULL' },
         { code: '2: Postorder (root -> left)' },
         { code: '3: Postorder (root -> right)' },

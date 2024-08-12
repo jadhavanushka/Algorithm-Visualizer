@@ -15,20 +15,13 @@ const StackVisualizer = () => {
     const [resultText, setResultText] = useState(null);
     const [currVal, setCurrVal] = useState(null);
     const [topIndex, setTopIndex] = useState(-1); // State variable for the index of the peeked element
-    const [animateToggle, setAnimateToggle] = useState(false);
     const [sidePanelOpen, setSidePanelOpen] = useState(false); // State to manage side panel visibility
     const [algorithmSteps, setAlgorithmSteps] = useState([]); // Define state for algorithm steps
+    const [algorithmName, setAlgorithmName] = useState("");
     const [timeComplexity, setTimeComplexity] = useState(""); // Initialize with default time complexity
     const [spaceComplexity, setSpaceComplexity] = useState(""); // Initialize with default space complexity
     const defaultTimeComplexity = "O(1)";
     const defaultSpaceComplexity = "O(1) bytes";
-
-    const triggerToggleAnimation = () => {
-        setAnimateToggle(true);
-        setTimeout(() => {
-            setAnimateToggle(false);
-        }, 2000); // Stop animation after 3 seconds
-    };
 
     // Function to measure the execution time of stack operations
     const measureExecutionTime = (operationFunc) => {
@@ -64,6 +57,7 @@ const StackVisualizer = () => {
                 setResultText('Pushed: ');
                 setCurrVal(newValue);
                 setSteps('Push');
+                setAlgorithmName('Push');
             } else {
                 setResultText("");
                 setCurrVal('Stack is full');
@@ -83,6 +77,7 @@ const StackVisualizer = () => {
                     setPoppedDie(null); // Clear the popped die after the animation duration
                 }, 500); // Adjust animation duration as needed
                 setSteps('Pop');
+                setAlgorithmName('Pop');
             } else {
                 setResultText("");
                 setCurrVal('Stack is empty');
@@ -92,12 +87,14 @@ const StackVisualizer = () => {
 
     const peek = () => {
         analyzeStackOperation('peek', () => {
+            setSteps('Peek');
+            setAlgorithmName('Peek');
             if (stack.length > 0) {
                 setResultText('Top value: ')
                 setCurrVal(stack[stack.length - 1]);
                 const timeline = gsap.timeline();
-                timeline.to(".die.top", { background: "#4942E4", translateY:"-16px", duration: 0.5 });
-                timeline.to(".die.top", { background: "#FF3EA5",translateY:"0", duration: 0.5, delay: 1 });
+                timeline.to(".die.top", { background: "#4942E4", translateY: "-16px", duration: 0.5 });
+                timeline.to(".die.top", { background: "#FF3EA5", translateY: "0", duration: 0.5, delay: 1 });
             } else {
                 setResultText("");
                 setCurrVal('Stack is empty');
@@ -107,6 +104,8 @@ const StackVisualizer = () => {
 
     const isEmpty = () => {
         analyzeStackOperation('isEmpty', () => {
+            setSteps('isEmpty');
+            setAlgorithmName('isEmpty');
             setResultText('Is empty: ')
             setCurrVal(stack.length === 0 ? 'True' : 'False');
         });
@@ -114,6 +113,8 @@ const StackVisualizer = () => {
 
     const size = () => {
         analyzeStackOperation('size', () => {
+            setSteps('Size');
+            setAlgorithmName('Size');
             setResultText('Size: ')
             setCurrVal(stack.length);
         });
@@ -127,51 +128,45 @@ const StackVisualizer = () => {
         switch (operation) {
             case 'Push':
                 setAlgorithmSteps([
-                    { code: "Push Operation" },
-                    { code: "Step 1: First, check whether or not the stack is full" },
-                    { code: "Step 2: If the stack is complete, then exit" },
-                    { code: "Step 3: If not, increment the top by one" },
-                    { code: "Step 4: Insert a new element where the top is pointing" },
-                    { code: "Step 5: Success" }
+                    { code: "1. First, check whether or not the stack is full" },
+                    { code: "2. If the stack is complete, then exit" },
+                    { code: "3. If not, increment the top by one" },
+                    { code: "4. Insert a new element where the top is pointing" },
+                    { code: "5. Success" }
                 ]);
                 break;
             case 'Pop':
                 setAlgorithmSteps([
-                    { code: "Pop Operation" },
-                    { code: "Step 1: First, check whether or not the stack is empty" },
-                    { code: "Step 2: If the stack is empty, then exit" },
-                    { code: "Step 3: If not, access the topmost data element" },
-                    { code: "Step 4: Decrement the top by one" },
-                    { code: "Step 5: Success" }
+                    { code: "1. First, check whether or not the stack is empty" },
+                    { code: "2. If the stack is empty, then exit" },
+                    { code: "3. If not, access the topmost data element" },
+                    { code: "4. Decrement the top by one" },
+                    { code: "5. Success" }
                 ]);
                 break;
             case 'IsEmpty':
                 setAlgorithmSteps([
-                    { code: "IsEmpty Operation" },
-                    { code: "Step 1: Check if the stack is empty" },
-                    { code: "Step 2: If the stack is empty, return true" },
-                    { code: "Step 3: If not, return false" }
+                    { code: "1. Check if the stack is empty" },
+                    { code: "2. If the stack is empty, return true" },
+                    { code: "3. If not, return false" }
                 ]);
                 break;
             case 'Peek':
                 setAlgorithmSteps([
-                    { code: "Peek Operation" },
-                    { code: "Step 1: Check if the stack is empty" },
-                    { code: "Step 2: If the stack is empty, display an error message" },
-                    { code: "Step 3: If not, return the top element of the stack" }
+                    { code: "1. Check if the stack is empty" },
+                    { code: "2. If the stack is empty, display an error message" },
+                    { code: "3. If not, return the top element of the stack" }
                 ]);
                 break;
             case 'Size':
                 setAlgorithmSteps([
-                    { code: "Size Operation" },
-                    { code: "Step 1: Get the number of elements in the stack" },
-                    { code: "Step 2: Return the count of elements" }
+                    { code: "1. Get the number of elements in the stack" },
+                    { code: "2. Return the count of elements" }
                 ]);
                 break;
             default:
                 break;
         }
-        triggerToggleAnimation();
     };
 
     return (
@@ -180,13 +175,13 @@ const StackVisualizer = () => {
                 info="stack/info" />
 
             {/* Side panel toggle button */}
-            <button className={`side-panel-toggle ${animateToggle ? 'animate' : ''}`} onClick={toggleSidePanel}>
+            <button className="side-panel-toggle" onClick={toggleSidePanel}>
                 <ListRounded className='sidepanel-icon' />
                 View steps
             </button>
 
             {/* Render the side panel component */}
-            <SidePanel algorithmSteps={algorithmSteps} isOpen={sidePanelOpen} onClose={toggleSidePanel} />
+            <SidePanel algorithmSteps={algorithmSteps} algorithmName={algorithmName} isOpen={sidePanelOpen} onClose={toggleSidePanel} />
             <div className="stack-visualizer">
                 <div>
                     <div className="menu">

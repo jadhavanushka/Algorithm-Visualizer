@@ -24,9 +24,9 @@ class MST extends Component {
 			maxVertices: 5,
 			animationSpeed: 50,
 			isAnimating: false, // Flag to track animation state
-			animateToggle: false,
 			sidePanelOpen: false,
 			algorithmSteps: [],
+			algorithmName: "",
 			timeComplexity: "",
 			spaceComplexity: "",
 			realTimeComplexity: "",
@@ -108,31 +108,34 @@ class MST extends Component {
 
 	setAlgoSteps = (algorithm) => {
 		let algorithmSteps = [];
+		let algorithmName = "";
 		let timeComplexity = "";
 		let spaceComplexity = "";
 		if (algorithm === "kruskal") {
 			algorithmSteps = [
-				{ code: "Step 1: Sort all the edges by weight (non-decreasing)." },
-				{ code: "Step 2: Pick the edge with the smallest weight." },
-				{ code: "Step 3: Check if adding that edge to the MST forms a cycle. If it doesn't, add it." },
-				{ code: "Step 4: Repeat steps 2 and 3 until the MST has a length of (number of vertices - 1)." }
+				{ code: "1. Sort all the edges by weight (non-decreasing)." },
+				{ code: "2. Pick the edge with the smallest weight." },
+				{ code: "3. Check if adding that edge to the MST forms a cycle. If it doesn't, add it." },
+				{ code: "4. Repeat steps 2 and 3 until the MST has a length of (number of vertices - 1)." }
 			];
+			algorithmName = "Kruskal's algorithm";
 			timeComplexity = "O(E log E)";
 			spaceComplexity = "O(E + V)";
 		} else if (algorithm === "prim") {
 			algorithmSteps = [
-				{ code: "Step 1: Initialize the start node and the open set." },
-				{ code: "Step 2: Loop until the open set is empty." },
-				{ code: "Step 3: Select the node with the lowest f score from the open set." },
-				{ code: "Step 4: If the selected node is the finish node, reconstruct the path." },
-				{ code: "Step 5: Generate the neighbors of the selected node." },
-				{ code: "Step 6: For each neighbor, calculate tentative g score and add it to the open set." },
-				{ code: "Step 7: Repeat the loop." }
+				{ code: "1. Initialize the start node and the open set." },
+				{ code: "2. Loop until the open set is empty." },
+				{ code: "3. Select the node with the lowest f score from the open set." },
+				{ code: "4. If the selected node is the finish node, reconstruct the path." },
+				{ code: "5. Generate the neighbors of the selected node." },
+				{ code: "6. For each neighbor, calculate tentative g score and add it to the open set." },
+				{ code: "7. Repeat the loop." }
 			];
+			algorithmName = "Prim's algorithm";
 			timeComplexity = "O(E log V)";
 			spaceComplexity = "O(E + V)";
 		}
-		this.setState({ algorithmSteps, timeComplexity, spaceComplexity });
+		this.setState({ algorithmSteps, algorithmName, timeComplexity, spaceComplexity });
 	}
 
 	// Function to calculate space complexity based on the selected algorithm
@@ -163,25 +166,18 @@ class MST extends Component {
 		return spaceComplexity;
 	}
 
-	triggerToggleAnimation = () => {
-		this.setState({ animateToggle: true });
-		setTimeout(() => {
-			this.setState({ animateToggle: false });
-		}, 3000);
-	};
-
 	toggleSidePanel = () => {
 		this.setState((prevState) => ({ sidePanelOpen: !prevState.sidePanelOpen }));
 	};
 
 	render() {
 		const { vertices, edges, visitedEdges, mstEdges, maxHeight, maxWidth, algorithm, animationSpeed, startTime, endTime, timeComplexity, spaceComplexity, realTimeComplexity, realSpaceComplexity } = this.state;
-		const { sidePanelOpen, algorithmSteps } = this.state;
+		const { sidePanelOpen, algorithmSteps, algorithmName } = this.state;
 
 		return (
 			<div>
 				<Navbar currentPage="Minimum Spanning Tree"
-				info="MinimumSpanningTree/info" />
+					info="MinimumSpanningTree/info" />
 				<div className='menu'>
 					<select value={algorithm} onChange={this.handleAlgorithmChange}>
 						<option disabled value="">Select Algorithm</option>
@@ -206,16 +202,16 @@ class MST extends Component {
 
 					<div>
 						<button className='visualize-btn' onClick={() => this.calculateMST()}>Get MST</button>
-						<button className='reset-btn' onClick={() => this						.generateVertices()}>Reset</button>
+						<button className='reset-btn' onClick={() => this.generateVertices()}>Reset</button>
 					</div>
 				</div>
 
-				<button className={`side-panel-toggle ${this.state.animateToggle ? 'animate' : ''}`} onClick={this.toggleSidePanel}>
+				<button className="side-panel-toggle" onClick={this.toggleSidePanel}>
 					<ListRounded className='sidepanel-icon' />
 					View steps
 				</button>
 
-				<SidePanel algorithmSteps={algorithmSteps} isOpen={sidePanelOpen} onClose={this.toggleSidePanel} />
+				<SidePanel algorithmSteps={algorithmSteps} algorithmName={algorithmName} isOpen={sidePanelOpen} onClose={this.toggleSidePanel} />
 
 				{/* Render any UI elements here */}
 				<Canvas vertices={vertices} mstEdges={mstEdges} connectingEdges={edges} visitedEdges={visitedEdges}

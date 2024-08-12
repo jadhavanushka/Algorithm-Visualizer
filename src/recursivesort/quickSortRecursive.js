@@ -55,11 +55,11 @@ function getPartition(rects, left, right){
 
 // Algorithm steps for Merge Sort
 export const quickSortSteps = [
-    { code: "Step 1: Choose a pivot element from the array." },
-    { code: "Step 2: Partition the array into two subarrays based on the pivot." },
-    { code: "Step 3: Recursively apply Quick Sort on the left subarray." },
-    { code: "Step 4: Recursively apply Quick Sort on the right subarray." },
-    { code: "Step 5: Merge the sorted subarrays into a single sorted array." }
+    { code: "1. Choose a pivot element from the array." },
+    { code: "2. Partition the array into two subarrays based on the pivot." },
+    { code: "3. Recursively apply Quick Sort on the left subarray." },
+    { code: "4. Recursively apply Quick Sort on the right subarray." },
+    { code: "5. Merge the sorted subarrays into a single sorted array." }
     // Add more steps if needed
 ];
 

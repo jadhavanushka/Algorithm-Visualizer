@@ -20,9 +20,9 @@ const LinkedListVisualizer = () => {
     const [newValue, setNewValue] = useState('');
     const [nodeValue, setNodeValue] = useState('');
     const [searchValue, setSearchValue] = useState('');
-    const [animateToggle, setAnimateToggle] = useState(false);
     const [sidePanelOpen, setSidePanelOpen] = useState(false); // State to manage side panel visibility
     const [algorithmSteps, setAlgorithmSteps] = useState([]);
+    const [algorithmName, setAlgorithmName] = useState("");
     const [timeComplexity, setTimeComplexity] = useState('O(1)');
     const [spaceComplexity, setSpaceComplexity] = useState('O(1)');
     const [realTimeComplexity, setRealTimeComplexity] = useState('');
@@ -75,6 +75,7 @@ const LinkedListVisualizer = () => {
             if (insertPosition === 'Beginning') {
                 const steps = linkedlist.steps("insertAtBeginning");
                 setAlgorithmSteps(steps);
+                setAlgorithmName("Insert at beginning");
 
                 const startTime = performance.now();
                 linkedlist.insertAtBeginning(newData);
@@ -90,6 +91,7 @@ const LinkedListVisualizer = () => {
                 if (prevNodeData) {
                     const steps = linkedlist.steps("insertAfterNode");
                     setAlgorithmSteps(steps);
+                    setAlgorithmName("Insert after node");
 
                     const foundNode = linkedlist.search(prevNodeData);
                     if (foundNode) {
@@ -119,6 +121,7 @@ const LinkedListVisualizer = () => {
                 if (nextNodeData) {
                     const steps = linkedlist.steps("insertBeforeNode");
                     setAlgorithmSteps(steps);
+                setAlgorithmName("Insert before node");
 
                     const foundNode = linkedlist.search(nextNodeData);
                     if (foundNode) {
@@ -144,6 +147,7 @@ const LinkedListVisualizer = () => {
             } else if (insertPosition === 'End') {
                 const steps = linkedlist.steps("insertAtEnd");
                 setAlgorithmSteps(steps);
+                setAlgorithmName("Insert at end");
 
                 const startTime = performance.now();
                 linkedlist.insertAtEnd(newData);
@@ -163,12 +167,10 @@ const LinkedListVisualizer = () => {
             setResultText('Select a linked list type first!');
             setCurrVal('');
         }
-        triggerToggleAnimation();
     };
 
     const deleteNode = async () => {
         if (linkedlist) {
-            triggerToggleAnimation();
             const animationPromise = new Promise(resolve => {
                 // Call animateDeletion with the appropriate parameters
                 animateDeletion(deletePosition, parseInt(nodeValue.trim()), resolve);
@@ -249,6 +251,8 @@ const LinkedListVisualizer = () => {
             if (valueToSearch) {
                 const steps = linkedlist.steps("search");
                 setAlgorithmSteps(steps);
+                setAlgorithmName("Search node");
+
 
                 const startTime = performance.now();
                 const foundNode = linkedlist.search(valueToSearch);
@@ -274,7 +278,6 @@ const LinkedListVisualizer = () => {
             setResultText('Select a linked list type first!');
             setCurrVal('');
         }
-        triggerToggleAnimation();
     };
 
     const calculateSpaceComplexity = (list) => {
@@ -350,6 +353,7 @@ const LinkedListVisualizer = () => {
 
         const steps = linkedlist.steps("traverse");
         setAlgorithmSteps(steps);
+        setAlgorithmName("Traverse list");
 
         const timeline = gsap.timeline();
 
@@ -364,7 +368,6 @@ const LinkedListVisualizer = () => {
         const traversalResult = linkedlist.displayList();
         setResultText("Linked list: ");
         setCurrVal(traversalResult);
-        triggerToggleAnimation();
     };
 
     const animateInsertion = async (insertPosition, newData) => {
@@ -545,12 +548,15 @@ const LinkedListVisualizer = () => {
 
                 const steps = linkedlist.steps("deleteFromMiddle");
                 setAlgorithmSteps(steps);
+                setAlgorithmName("Delete from middle");
+
             }
             else if (deletePosition === "Beginning") {
                 index = 0;
                 deletedData = list[index].data;
 
                 const steps = linkedlist.steps("deleteAtBeginning");
+                setAlgorithmName("Delete at beginning");
                 setAlgorithmSteps(steps);
             }
             else if (deletePosition === "End") {
@@ -558,6 +564,7 @@ const LinkedListVisualizer = () => {
                 deletedData = list[index].data;
 
                 const steps = linkedlist.steps("deleteFromEnd");
+                setAlgorithmName("Delete from end");
                 setAlgorithmSteps(steps);
             }
         }
@@ -809,22 +816,15 @@ const LinkedListVisualizer = () => {
         setSidePanelOpen(!sidePanelOpen);
     };
 
-    const triggerToggleAnimation = () => {
-        setAnimateToggle(true);
-        setTimeout(() => {
-            setAnimateToggle(false);
-        }, 3000); // Stop animation after 3 seconds
-    };
-
     return (
         <>
             <Navbar currentPage="Linked List"
                 info="LinkedList/info" />
-            <button className={`side-panel-toggle ${animateToggle ? 'animate' : ''}`} onClick={toggleSidePanel}>
+            <button className="side-panel-toggle" onClick={toggleSidePanel}>
                 <ListRounded className='sidepanel-icon' />
                 View steps
             </button>
-            <SidePanel algorithmSteps={algorithmSteps} isOpen={sidePanelOpen} onClose={toggleSidePanel} />
+            <SidePanel algorithmSteps={algorithmSteps} algorithmName={algorithmName} isOpen={sidePanelOpen} onClose={toggleSidePanel} />
 
             <div className="linkedlist-visualizer">
                 <div>

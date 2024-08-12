@@ -34,7 +34,8 @@ class BinaryTree extends Component {
       isAnimating: false, // Flag to track animation state,
       animateToggle: false,
       sidePanelOpen: false, // State variable to manage side panel visibility
-      algorithmSteps: steps("inorderTraversal"),
+      algorithmSteps: [],
+      algorithmName:"",
       timeComplexity: "O(n)", // Default time complexity
       spaceComplexity: "O(n)", // Default space complexity
       realTimeComplexity: "",
@@ -120,20 +121,24 @@ class BinaryTree extends Component {
 
     let traversalResult = [];
     let algorithmSteps = [];
+    let algorithmName = "";
     const startTime = performance.now(); // Start measuring time
 
     switch (traversalType) {
       case 'inorder':
         traversalResult = inorderTraversal(tree);
         algorithmSteps = steps("inorderTraversal");
+        algorithmName = "Inorder Traversal";
         break;
       case 'preorder':
         traversalResult = preorderTraversal(tree);
         algorithmSteps = steps("preorderTraversal");
+        algorithmName = "Preorder Traversal";
         break;
       case 'postorder':
         traversalResult = postorderTraversal(tree);
         algorithmSteps = steps("postorderTraversal");
+        algorithmName = "Postorder Traversal";
         break;
       default:
         break;
@@ -144,8 +149,7 @@ class BinaryTree extends Component {
     // Calculate space complexity
     const realSpaceComplexity = `${this.estimateSpaceComplexity(tree)} bytes`;
 
-    this.setState({ algorithmSteps, realTimeComplexity, realSpaceComplexity });
-    this.triggerToggleAnimation();
+    this.setState({ algorithmSteps, algorithmName, realTimeComplexity, realSpaceComplexity });
     // Perform traversal animation
     this.performTraversalAnimation(traversalResult, animationSpeed);
   }
@@ -193,8 +197,8 @@ class BinaryTree extends Component {
 
     if (!isNaN(value)) {
       const algorithmSteps = steps("addNodeToBST");
-      this.setState({ algorithmSteps });
-      // this.triggerToggleAnimation();
+      const algorithmName = "Insert node";
+      this.setState({ algorithmSteps, algorithmName });
 
       const findPosition = await searchBST(tree, value, (resultText) => this.setState({ resultText }), animationSpeed);
 
@@ -210,8 +214,6 @@ class BinaryTree extends Component {
 
 
       this.setState({ tree: updatedTree, nodeValue: '', realTimeComplexity, realSpaceComplexity });
-      this.triggerToggleAnimation();
-
 
       new Promise(resolve => setTimeout(resolve, 500));
 
@@ -264,6 +266,8 @@ class BinaryTree extends Component {
     const value = parseInt(searchValue, 10);
     if (!isNaN(value)) {
       const algorithmSteps = steps("searchBST");
+      const algorithmName = "Search node";
+
       const startTime = performance.now(); // Start measuring time
       const search = findNode(tree, value);
       const endTime = performance.now(); // Stop measuring time
@@ -273,8 +277,7 @@ class BinaryTree extends Component {
 
       // Calculate space complexity
       const realSpaceComplexity = `${this.estimateSpaceComplexity(tree)} bytes`;
-      this.setState({ resultText: [], algorithmSteps, realTimeComplexity, realSpaceComplexity }); // Clear previous search results
-      // this.triggerToggleAnimation();
+      this.setState({ resultText: [], algorithmSteps, algorithmName, realTimeComplexity, realSpaceComplexity }); // Clear previous search results
 
       const found = await searchBST(tree, value, (resultText) => this.setState({ resultText }), animationSpeed);
       if (!found) {
@@ -290,8 +293,8 @@ class BinaryTree extends Component {
 
     if (!isNaN(value)) {
       const algorithmSteps = steps("deleteNodeFromBST");
-      this.setState({ algorithmSteps });
-      // this.triggerToggleAnimation();
+      const algorithmName = "Delete node";
+      this.setState({ algorithmSteps, algorithmName });
 
       const found = await searchBST(tree, value, (resultText) => this.setState({ resultText }), animationSpeed);
       if (!found) {
@@ -422,13 +425,6 @@ class BinaryTree extends Component {
     }
   }
 
-  triggerToggleAnimation = () => {
-    this.setState({ animateToggle: true });
-    setTimeout(() => {
-      this.setState({ animateToggle: false });
-    }, 3000);
-  };
-
   toggleSidePanel = () => {
     // Reset algorithm steps when closing the side panel
     if (!this.state.sidePanelOpen) {
@@ -439,18 +435,18 @@ class BinaryTree extends Component {
 
   render() {
     const { tree, nodeValue, searchValue, deleteValue, traversalType, resultText } = this.state;
-    const { algorithmSteps, sidePanelOpen, animationSpeed, timeComplexity, spaceComplexity, realSpaceComplexity, realTimeComplexity } = this.state;
+    const { algorithmSteps, algorithmName, sidePanelOpen, animationSpeed, timeComplexity, spaceComplexity, realSpaceComplexity, realTimeComplexity } = this.state;
 
     return (
       <div>
         <Navbar currentPage="Binary Search Tree"
           info="BinarySearchTree/info" />
-        <button className={`side-panel-toggle ${this.state.animateToggle ? 'animate' : ''}`} onClick={this.toggleSidePanel}>
-          <ListRounded className='sidepanel-icon' />
+                    <button className="side-panel-toggle" onClick={this.toggleSidePanel}>
+                    <ListRounded className='sidepanel-icon' />
           View steps
         </button>
 
-        <SidePanel algorithmSteps={algorithmSteps} isOpen={sidePanelOpen} onClose={this.toggleSidePanel} />
+        <SidePanel algorithmSteps={algorithmSteps} algorithmName={algorithmName} isOpen={sidePanelOpen} onClose={this.toggleSidePanel} />
         <div className='menu'>
           <DiscreteSlider
             title='Speed'

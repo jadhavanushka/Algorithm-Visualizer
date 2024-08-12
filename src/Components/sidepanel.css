@@ -94,43 +94,18 @@
   opacity: 1;
 }
 
-.buttons-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #fff;
-  padding: 10px 0;
-  flex: 1;
-  margin: auto;
-  margin-top: 50px;
-  width: 100%;
-  z-index: 5;
-}
-
-.buttons-row button {
-  display: flex;
-  width: 100%;
-  border: none;
-  background-color: #2196f3;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-items: center;
-  justify-content: center;
-}
-
-.buttons-row button:hover {
-  background-color: #0d8bff;
-}
-
 .panel-content {
   display: flex;
   flex-direction: column;
   padding: 10px;
   overflow-y: auto;
   color: #555;
-  /* margin-top: -30px; */
+  margin-top: 48px;
+}
+
+.panel-content .steps-title{
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .panel-content .step {
