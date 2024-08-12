@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import Rects from "../Sorting/rects";
 import Navbar from '../Components/navbar';
 import Menu from "./menu";
-import heapSort from "../algorithms/heapSort";
-import { quickSortRecursive } from "../algorithms/quickSortRecursive";
-import mergeSort from "../algorithms/mergeSort";
+import heapSort from "./heapSort";
+import { quickSortRecursive } from "./quickSortRecursive";
+import mergeSort from "./mergeSort";
 import SidePanel from "../Components/sidepanel";
 import { ListRounded } from '@material-ui/icons';
-import { quickSort } from "../algorithms/quickSort";
-import { mergeSortSteps } from "../algorithms/mergeSort"; // Import mergeSortSteps 
-import { heapSortSteps } from "../algorithms/heapSort"
-import { quickSortSteps } from "../algorithms/quickSortRecursive"
+import { quickSort } from "../Sorting/algorithms/quickSort";
+import { mergeSortSteps } from "./mergeSort"; // Import mergeSortSteps 
+import { heapSortSteps } from "./heapSort"
+import { quickSortSteps } from "./quickSortRecursive"
 import ComplexityAnalysis from "../Components/ComplexityAnalysis";
 
 class RecursiveSort extends Component {

@@ -1,15 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import Layout from "./Pages/Layout";
 import Home from "./Pages/Home";
 import NoPage from "./Pages/NoPage";
 import Sort from './Sorting/sort';
 import PathfindingVisualizer from './PathFindingVisualizer/PathFindingVisualizer';
 import RecursiveSort from "./recursivesort/recursiveSort";
 import ConvexHull from "./convexHull/convexHull";
-import Graph from './RecursiveGraph/graph';
-import Puzzle from './15Puzzle/puzzle';
 import Queen from './Queen/queen';
 import BinarySearch from './BinarySearch/binarysearch';
 import LinkedList from './LinkedList/Linkedlist';
@@ -17,15 +14,7 @@ import Queue from './Queue/queue';
 import Stack from './Stack/stack';
 import Mst from './MST/mst';
 import BST from "./BST/Bst"
-import LinearRegression from './ML/LinearRegression/linear';
-import MultiLinearRegression from './ML/Multiplelinearregression/multilinear';
-import LogisticRegressionVisualization from './ML/LogisticRegression/logistic';
-import MultipleLinearRegressionVisualization from './ML/Multiplelinearregression/multiplelinear';
-import KMeans from './ML/KMeans/Kmeans';
-import KNN from './ML/KNN/KNN';
-// import ANN from './ML/ANN/ANN';
-// import CNN from './ML/CNN/CNN';
-// import RNN from './ML/RNN/RNN';
+import LinearRegression from './LinearRegression/linear';
 
 import SortingInfo from './Pages/InfoPages/sortInfo'
 import MSTInfo from './Pages/InfoPages/mstInfo.js';
@@ -36,16 +25,8 @@ import StackInfo from './Pages/InfoPages/stackInfo.js';
 import QueueInfo from './Pages/InfoPages/queueInfo.js';
 import BSTInfo from './Pages/InfoPages/bstInfo.js';
 import LinkedListInfo from './Pages/InfoPages/listInfo.js';
-import RecursionTreeInfo from './Pages/InfoPages/recursionTreeInfo.js';
 import LinearRegressionInfo from './Pages/InfoPages/LinearRegressionInfo.js';
 import ConvexHullInfo from './Pages/InfoPages/ConvexHullInfo.js';
-import PuzzleInfo from './Pages/InfoPages/puzzleInfo.js';
-import LogisticRegressionInfo from './Pages/InfoPages/logisticInfo.js';
-import MultipleLinearRegressionInfo from './Pages/InfoPages/multilinearInfo.js';
-import KNNInfo from './Pages/InfoPages/KNNInfo.js';
-import KMeansInfo from './Pages/InfoPages/kmeansInfo.js';
-// import ANNInfo from './Pages/InfoPages/annInfo.js';
-// import CNNInfo from './Pages/InfoPages/cnnInfo.js';
 import RecursiveSortInfo from './Pages/InfoPages/recursivesortInfo.js';
 
 function App() {
@@ -59,8 +40,6 @@ function App() {
             <Route path="pathfinder" element={<PathfindingVisualizer />} />
             <Route path="recursiveSort" element={<RecursiveSort />} />
             <Route path="convexHull" element={<ConvexHull />} />
-            <Route path="recursiontree" element={<Graph />} />
-            <Route path="puzzle" element={<Puzzle />} />
             <Route path="queen" element={<Queen />} />
             <Route path="BinarySearchTree" element={<BST />} />
             <Route path="BinarySearch" element={<BinarySearch />} />
@@ -69,15 +48,7 @@ function App() {
             <Route path="queue" element={<Queue />} />
             <Route path="LinkedList" element={<LinkedList />} />
             <Route path="linear-regression" element={<LinearRegression />} />
-            <Route path="multilinear-regression" element={<MultiLinearRegression />} />
-            <Route path="logistic-regression" element={<LogisticRegressionVisualization />} />
-            <Route path="multiplelinear-regression" element={<MultipleLinearRegressionVisualization />} />
-            <Route path="KMeans" element={<KMeans />} />
-            <Route path="KNN" element={<KNN />} />
-            {/* <Route path="ANN" element={<ANN/>} /> */}
-            {/* <Route path="CNN" element={<CNN />} /> */}
-            {/* <Route path="RNN" element={<RNN />} /> */}
-            
+
             <Route path="sort/info" element={<SortingInfo />} />
             <Route path="MinimumSpanningTree/info" element={<MSTInfo />} />
             <Route path="pathfinder/info" element={<PathfinderInfo />} />
@@ -87,16 +58,8 @@ function App() {
             <Route path="queue/info" element={<QueueInfo />} />
             <Route path="BinarySearchTree/info" element={<BSTInfo />} />
             <Route path="LinkedList/info" element={<LinkedListInfo />} />
-            <Route path="recursiontree/info" element={<RecursionTreeInfo />} />
             <Route path="linear-regression/info" element={<LinearRegressionInfo />} />
             <Route path="convexHull/info" element={<ConvexHullInfo />} />
-            <Route path="puzzle/info" element={<PuzzleInfo />} />
-            <Route path="logistic-regression/info" element={<LogisticRegressionInfo />} />
-            <Route path="multiplelinear-regression/info" element={<MultipleLinearRegressionInfo />} />
-            <Route path="KNN/info" element={<KNNInfo />} />
-            <Route path="KMeans/info" element={<KMeansInfo />} />
-            {/* <Route path="ANN/info" element={<ANNInfo/>} /> */}
-            {/* <Route path="CNN/info" element={<CNNInfo />} /> */}
             <Route path="recursiveSort/info" element={<RecursiveSortInfo />} />
 
             <Route path="*" element={<NoPage />} />
@@ -107,5 +70,5 @@ function App() {
   );
 }
 
-export default App;         
-  
+export default App;
+

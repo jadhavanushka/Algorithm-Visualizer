@@ -3,8 +3,6 @@ import DiscreteSlider from "../Components/slider";
 import SimpleSelect from "../Components/simpleSelect";
 import RangeSlider from '../Components/douleSlider';
 import SwitchLabels from "../Components/formControlLabel";
-// import CustomizedSlider from '../Components/douleSlider';
-
 
 class Menu extends Component {
     render() {

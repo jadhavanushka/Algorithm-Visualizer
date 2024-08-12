@@ -84,20 +84,6 @@ const list = [
     "img": ""
   },
   {
-    "title": "Recursion Tree",
-    "link": "RecursionTree",
-    "description": "A recursion tree is useful for visualizing the tree of recursive calls and the amount of work done at each call.",
-    "algorithms": ["Fibonacci", "Binomial Coefficient", "Derangement", "Bigmod"],
-    "img": ""
-  },
-  {
-    "title": "15 Puzzle",
-    "link": "puzzle",
-    "description": "The 15 puzzle is a sliding puzzle that consists of a frame of numbered square tiles in random order with one tile missing. The objective is to arrange the tiles in ascending order by making sliding moves that use the empty space.",
-    "algorithms": [],
-    "img": ""
-  },
-  {
     "title": "Binary Search Tree",
     "link": "binarysearchtree",
     "description": "BST is a node-based binary tree data structure which has the following properties: left subtree of a node contains only nodes with keys lesser than the node’s key.",
@@ -111,55 +97,6 @@ const list = [
     "algorithms": ["Supervised", "Prediction"],
     "img": ""
   },
-  {
-    "title": "Logistic Regression",
-    "link": "logistic-regression",
-    "description": "Logistic Regression is a statistical method for analyzing a dataset in which there are one or more independent variables that determine an outcome.",
-    "algorithms": ["Supervised","Independent Variables"],
-    "img": ""
-  },
-  {
-    "title": "Multiple Linear Regression",
-    "link": "multilinear-regression",
-    "description": "",
-    "algorithms": ["Simple Linear Regression","Multiple Independent Variables"],
-    "img": ""
-  },
-  {
-    "title": "K-Means Clustering",
-    "link": "KMeans",
-    "description": "K-Means Clustering is an unsupervised learning algorithm that is used for clustering.",
-    "algorithms": ["Unsupervised", "Classification"],
-    "img": ""
-  },
-  {
-    "title": "K-Nearest Neighbors",
-    "link": "KNN",
-    "description": "K-Nearest Neighbors is a simple, easy-to-implement supervised machine learning algorithm that can be used to solve both classification and regression problems.",
-    "algorithms": ["Supervised", "Classification"],
-    "img": ""
-  },
-  // {
-  //   "title": "Artificial Neural Networks",
-  //   "link": "ann",
-  //   "description": "Artificial Neural Networks (ANN) are computational models inspired by human neural networks, and they are used to approximate functions that can depend on a large number of inputs.",
-  //   "algorithms": ["Computation Models","Complex Patterns"],
-  //   "img": ""
-  // },
-  // {
-  //   "title": "Convolutional Neural Networks",
-  //   "link": "cnn",
-  //   "description": "Convolutional Neural Networks (CNN) are a class of deep neural networks, most commonly applied to analyzing visual imagery.",
-  //   "algorithms": ["Image Recognition", "Computer Vision"],
-  //   "img": ""
-  // },
-  // {
-  //   "title": "RNN",
-  //   "link": "RNN",
-  //   "description": "",
-  //   "algorithms": [],
-  //   "img": ""
-  // },
 ];
 
 const categories = {
@@ -167,10 +104,7 @@ const categories = {
   "Array": ["Sorting Algorithms", "Binary Search", "Recursive Sort"],
   "Graph": ["Pathfinding Algorithms", "Minimum Spanning Tree"],
   "Backtracking": ["N-queens Problem"],
-  // "Geometry": ["Convex Hull"],
-  "Machine Learning": ["Linear Regression", "Logistic Regression", "Multiple Linear Regression", "K-Means Clustering", "K-Nearest Neighbors"],
-  // "Deep Learning": ["Artificial Neural Networks", "Convolutional Neural Networks"],
-  // "Recursion": ["Recursion Tree"],
+  "Machine Learning": ["Linear Regression"],
 };
 
 const HtmlTooltip = styled(({ className, ...props }) => (
@@ -232,7 +166,7 @@ export default function Home() {
         <div className="nav-logo">
           <GraphicEqIcon />
           <h3 className="logo-text">
-            Interactive learning platform for DSA & ML
+            Interactive learning platform for Data Structures & Algorithms
           </h3>
         </div>
         <section className="hero-section">

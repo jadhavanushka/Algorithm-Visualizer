@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Typography } from '@mui/material';
 import { gsap } from 'gsap';
-import Navbar from '../../Components/navbar';
+import Navbar from '../Components/navbar';
 import './LinearRegression.css';
 
 const LinearRegression = () => {
