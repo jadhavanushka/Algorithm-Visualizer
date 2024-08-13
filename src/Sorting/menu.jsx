@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DiscreteSlider from "../Components/slider";
 import SimpleSelect from "../Components/simpleSelect";
 import RangeSlider from '../Components/douleSlider';
-import SwitchLabels from "../Components/formControlLabel";
+import SwitchLabels from "../Components/switch";
 
 class Menu extends Component {
     render() {

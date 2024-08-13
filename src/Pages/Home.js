@@ -214,12 +214,11 @@ export default function Home() {
               '& .MuiTabs-flexContainer': {
                 justifyContent: 'center',
               },
-              '& .Mui-selected': {
-                color: "#5a43c3",
-              },
               '& .MuiTabs-indicator': {
-                color: "#5a43c3",
-                backgroundColor: "#5a43c3",
+                backgroundColor: '#5a43c3',
+              },
+              '& .MuiTab-root.Mui-selected': {
+                color: '#5a43c3',
               },
             }}
           >
@@ -248,7 +247,7 @@ export default function Home() {
                       }
                     >
                       <Button>
-                        <Link to={listItem?.link + "/info" || '#'} style={{height:"24px"}}>
+                        <Link to={listItem?.link + "/info" || '#'} style={{ height: "24px" }}>
                           <InfoIcon color="action"></InfoIcon>
                         </Link>
                       </Button>
