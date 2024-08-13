@@ -25,8 +25,8 @@ class ConvexHull extends Component {
             { code: '4. Continue adding points until you reach the starting point again.' },
             { code: '5. The set of points added forms the convex hull.' }
         ],
-        timeComplexity: 'O(N log N)', // Default time complexity
-        spaceComplexity: 'O(N)', // Default space complexity
+        timeComplexity: 'O(n log n)', // Default time complexity
+        spaceComplexity: 'O(n)', // Default space complexity
         realTimeComplexity: null, // State to store the real-time complexity
         realSpaceComplexity: null // State to store the real-space complexity
     }

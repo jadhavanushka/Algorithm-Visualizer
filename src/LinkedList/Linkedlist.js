@@ -23,8 +23,8 @@ const LinkedListVisualizer = () => {
     const [sidePanelOpen, setSidePanelOpen] = useState(false); // State to manage side panel visibility
     const [algorithmSteps, setAlgorithmSteps] = useState([]);
     const [algorithmName, setAlgorithmName] = useState("");
-    const [timeComplexity, setTimeComplexity] = useState('O(1)');
-    const [spaceComplexity, setSpaceComplexity] = useState('O(1)');
+    const [timeComplexity, setTimeComplexity] = useState("");
+    const [spaceComplexity, setSpaceComplexity] = useState('O(n)');
     const [realTimeComplexity, setRealTimeComplexity] = useState('');
     const [realSpaceComplexity, setRealSpaceComplexity] = useState('');
 
@@ -121,7 +121,7 @@ const LinkedListVisualizer = () => {
                 if (nextNodeData) {
                     const steps = linkedlist.steps("insertBeforeNode");
                     setAlgorithmSteps(steps);
-                setAlgorithmName("Insert before node");
+                    setAlgorithmName("Insert before node");
 
                     const foundNode = linkedlist.search(nextNodeData);
                     if (foundNode) {

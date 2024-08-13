@@ -62,7 +62,7 @@ class RecursiveSort extends Component {
             case 2:
                 steps = quickSortSteps;
                 algorithmName = "Quick sort";
-                timeComplexity = 'O(n log n) average, O(n^2) worst';
+                timeComplexity = 'O(n log n)';
                 spaceComplexity = 'O(log n)';
                 break;
             default:
