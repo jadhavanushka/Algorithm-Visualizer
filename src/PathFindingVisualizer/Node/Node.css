@@ -9,12 +9,20 @@
 }
 
 .node-finish {
-  background-color: #5D9C59;
-}
+  background-image: url('./finish-node.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #d4ffef;
+ }
 
 .node-start {
-  background-color: #DF2E38;
-}
+  background-image: url('./start-node.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #ffebeb;
+ }
 
 .node-visited {
   animation-name: visitedAnimation;
