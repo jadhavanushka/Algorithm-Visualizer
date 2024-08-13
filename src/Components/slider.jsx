@@ -6,8 +6,36 @@ import Box from '@mui/material/Box';
 
 const Root = styled(Box)(({ theme }) => ({
     width: 200,
-    marginRight: 5,
-    marginLeft: 5,
+    marginRight: 10,
+    marginLeft: 10,
+    marginTop: -60,
+    height: 4,        // Height of the slider track
+    '& .MuiSlider-thumb': {
+        width: 16,
+        height: 16,
+        backgroundColor: '#493db8', // Thumb color
+        '&:hover': {
+            boxShadow: '0 0 0 8px #7d47e922', // Shadow effect on hover
+        },
+        '&.Mui-active': {
+            boxShadow: '0 0 0 14px #7d47e922', // Shadow effect when active
+        },
+    },
+    '& .MuiSlider-track': {
+        height: 4,
+        backgroundColor: '#7d47e9',
+        border: 'none',
+        borderRadius: 4, // Rounded corners for the track
+    },
+    '& .MuiSlider-rail': {
+        height: 4,
+        borderRadius: 4, // Rounded corners for the rail
+        backgroundColor: '#afa3e2',
+    },
+    '& .MuiSlider-valueLabel': {
+        backgroundColor: '#4c38a6',
+        opacity: 0.8
+    }
 }));
 
 function valuetext(value) {
@@ -24,7 +52,7 @@ export default function DiscreteSlider(props) {
     };
 
     return (
-        <Root className="ml-2 mr-2">
+        <Root>
             <Typography id="discrete-slider" gutterBottom>
                 {props.title}
             </Typography>
