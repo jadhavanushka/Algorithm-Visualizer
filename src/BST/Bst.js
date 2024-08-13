@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from "../Components/navbar";
 import SidePanel from "../Components/sidepanel";
-import { ListRounded } from '@material-ui/icons';
+import { ListRounded } from '@mui/icons-material';
 import ComplexityAnalysis from "../Components/ComplexityAnalysis";
 import DiscreteSlider from '../Components/slider';
 import Canvas from './canvas'; // Updated name

@@ -4,7 +4,7 @@ import Menu from "./menu";
 import Rects from './rects';
 import ComplexityAnalysis from "../Components/ComplexityAnalysis";
 import SidePanel from './sidepanelso';
-import { ListRounded } from '@material-ui/icons';
+import { ListRounded } from '@mui/icons-material';
 import { bubbleSort, selectionSort, insertionSort } from "./algorithms/sortingalgorithms";
 import { bubbleSortSteps, selectionSortSteps, insertionSortSteps } from "./algorithms/sortingalgorithms";
 import { quickSort, quickSortSteps } from './algorithms/quickSort';

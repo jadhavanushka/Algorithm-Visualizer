@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './sidepanelso.css'; // Make sure to define your styles in this CSS file
-import { CloseRounded } from '@material-ui/icons';
+import { CloseRounded } from '@mui/icons-material';
 import { gsap } from 'gsap';
 import { PlayArrow, PauseSharp, SkipPrevious, SkipNext } from '@mui/icons-material';
 

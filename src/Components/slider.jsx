@@ -1,31 +1,30 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/core/Slider';
+import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
+import Slider from '@mui/material/Slider';
+import Box from '@mui/material/Box';
 
-const useStyles = makeStyles({
-    root: {
-        width: 200,
-        marginRight: 5,
-        marginLeft: 5,
-    },
-});
+const Root = styled(Box)(({ theme }) => ({
+    width: 200,
+    marginRight: 5,
+    marginLeft: 5,
+}));
 
 function valuetext(value) {
     return `${value}`;
 }
 
 export default function DiscreteSlider(props) {
-    const classes = useStyles();
     const handleChange = (event) => {
         if (event.target.innerText === "") {
             return;
         }
         const num = parseInt(event.target.innerText, 10);
         props.onCountChange(num);
-    }
+    };
+
     return (
-        <div className={classes.root + " ml-2 mr-2"}>
+        <Root className="ml-2 mr-2">
             <Typography id="discrete-slider" gutterBottom>
                 {props.title}
             </Typography>
@@ -39,10 +38,8 @@ export default function DiscreteSlider(props) {
                 marks={props.marks}
                 min={props.min}
                 max={props.max}
-                // valueLabelDisplay="on"
                 disabled={props.isDisabled}
             />
-
-        </div>
+        </Root>
     );
 }

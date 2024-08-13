@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../Components/navbar';
 import ComplexityAnalysis from "../Components/ComplexityAnalysis";
 import SidePanel from '../Components/sidepanel'; // Import the SidePanel component
-import { ListRounded } from '@material-ui/icons';
+import { ListRounded } from '@mui/icons-material';
 import './linkedlist.css';
 import SinglyLinkedList from './SinglyLinkedList'; // Import SinglyLinkedList
 import DoublyLinkedList from './DoublyLinkedList'; // Import DoublyLinkedList

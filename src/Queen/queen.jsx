@@ -4,7 +4,7 @@ import Navbar from '../Components/navbar';
 import Menu from "./menu";
 import ComplexityAnalysis from "../Components/ComplexityAnalysis";
 import SidePanel from '../Components/sidepanel';
-import { ListRounded } from '@material-ui/icons';
+import { ListRounded } from '@mui/icons-material';
 import './style.css';
 
 class Queen extends Component {

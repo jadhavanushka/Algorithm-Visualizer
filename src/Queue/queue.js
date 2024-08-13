@@ -5,7 +5,7 @@ import ComplexityAnalysis from "../Components/ComplexityAnalysis";
 import SidePanel from '../Components/sidepanel';
 import "./queue.css";
 import { gsap } from 'gsap';
-import { ArrowUpwardRounded, ArrowDownwardRounded, ListRounded } from "@material-ui/icons";
+import { ArrowUpwardRounded, ArrowDownwardRounded, ListRounded } from "@mui/icons-material";
 
 const QueueVisualizer = () => {
   const [queue, setQueue] = useState([]);

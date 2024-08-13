@@ -3,7 +3,7 @@ import Canvas from "./canvas";
 import Navbar from '../Components/navbar';
 import Menu from "./menu";
 import SidePanel from '../Components/sidepanel'; // Import SidePanel component
-import { ListRounded } from '@material-ui/icons';
+import { ListRounded } from '@mui/icons-material';
 import ComplexityAnalysis from "../Components/ComplexityAnalysis";
 
 class ConvexHull extends Component {

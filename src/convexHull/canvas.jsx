@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './style.css';
 import { convex_hull } from "./grahamScan";
 import SidePanel from '../Components/sidepanel'; // Import the SidePanel component
-import { ListRounded } from '@material-ui/icons';
+import { ListRounded } from '@mui/icons-material';
 
 class Canvas extends Component {
     state = {

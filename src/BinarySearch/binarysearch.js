@@ -4,7 +4,7 @@ import Navbar from '../Components/navbar';
 import Menu from "./menu";
 import Rects from './rects';
 import SidePanel from '../Components/sidepanel'; // Import the SidePanel component
-import { ListRounded } from '@material-ui/icons';
+import { ListRounded } from '@mui/icons-material';
 import ComplexityAnalysis from "../Components/ComplexityAnalysis";
 
 class BinarySearch extends Component {

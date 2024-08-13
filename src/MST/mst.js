@@ -4,7 +4,7 @@ import Navbar from "../Components/navbar";
 import DiscreteSlider from '../Components/slider';
 import ComplexityAnalysis from "../Components/ComplexityAnalysis";
 import SidePanel from '../Components/sidepanel';
-import { ListRounded } from '@material-ui/icons';
+import { ListRounded } from '@mui/icons-material';
 import Canvas from './canvas'; // Assuming you have a Canvas component for drawing
 import kruskal from './kruskal';
 import prim from './prim';

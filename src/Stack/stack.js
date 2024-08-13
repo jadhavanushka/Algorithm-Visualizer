@@ -6,7 +6,7 @@ import SidePanel from '../Components/sidepanel'; // Import the SidePanel compone
 import './stack.css';
 import { gsap } from 'gsap';
 import { ArrowBackRounded } from '@mui/icons-material';
-import { ListRounded } from '@material-ui/icons';
+import { ListRounded } from '@mui/icons-material';
 
 const StackVisualizer = () => {
     const [stack, setStack] = useState([]);

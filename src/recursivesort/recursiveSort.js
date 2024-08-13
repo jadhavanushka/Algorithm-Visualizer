@@ -6,7 +6,7 @@ import heapSort from "./heapSort";
 import { quickSortRecursive } from "./quickSortRecursive";
 import mergeSort from "./mergeSort";
 import SidePanel from "../Components/sidepanel";
-import { ListRounded } from '@material-ui/icons';
+import { ListRounded } from '@mui/icons-material';
 import { quickSort } from "../Sorting/algorithms/quickSort";
 import { mergeSortSteps } from "./mergeSort"; // Import mergeSortSteps 
 import { heapSortSteps } from "./heapSort"

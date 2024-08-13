@@ -1,65 +1,56 @@
 import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/core/Slider';
+import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
+import Slider from '@mui/material/Slider';
+import Box from '@mui/material/Box';
 
-const useStyles = makeStyles({
-    root: {
-        width: 200,
-    },
-});
+const Root = styled(Box)(({ theme }) => ({
+  width: 200,
+}));
 
-
-const CSlider = withStyles({
-    root: {
-        // color: "#ffffff",
-        height: 3,
-        padding: "13px 0",
-    },
-    track: {
-        height: 4,
-        borderRadius: 2,
-    },
-    thumb: {
-        backgroundColor: "#fff",
-        //color: "#fff",
-    },
-})(Slider);
+const CSlider = styled(Slider)(({ theme }) => ({
+  root: {
+    height: 3,
+    padding: '13px 0',
+  },
+  '& .MuiSlider-track': {
+    height: 4,
+    borderRadius: 2,
+  },
+  '& .MuiSlider-thumb': {
+    backgroundColor: '#fff',
+  },
+}));
 
 function valuetext(value) {
-    return `${value}`;
+  return `${value}`;
 }
 
-
-
 export default function RangeSlider(props) {
-    const classes = useStyles();
-    const [value, setValue] = React.useState([20, 40]);
+  const [value, setValue] = React.useState([20, 40]);
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
-    };
-    const handleCommit = (event, newValue) => {
-        console.log(newValue);
-    };
+  const handleCommit = (event, newValue) => {
+    console.log(newValue);
+  };
 
-    return (
-        <div className={classes.root}>
-            <Typography id="range-slider" gutterBottom>
-                Value range
-            </Typography>
-            <CSlider
-                disabled={props.isDisabled}
-                value={value}
-                onChange={handleChange}
-                onChangeCommitted={handleCommit}
-                valueLabelDisplay="auto"
-                aria-labelledby="range-slider"
-                getAriaValueText={valuetext}
-            // valueLabelDisplay="off"
-            />
-
-        </div>
-    );
+  return (
+    <Root>
+      <Typography id="range-slider" gutterBottom>
+        Value range
+      </Typography>
+      <CSlider
+        disabled={props.isDisabled}
+        value={value}
+        onChange={handleChange}
+        onChangeCommitted={handleCommit}
+        valueLabelDisplay="auto"
+        aria-labelledby="range-slider"
+        getAriaValueText={valuetext}
+      />
+    </Root>
+  );
 }

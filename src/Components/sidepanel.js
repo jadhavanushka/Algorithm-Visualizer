@@ -1,6 +1,6 @@
 import React from 'react';
 import './sidepanel.css';
-import { CloseRounded } from '@material-ui/icons';
+import { CloseRounded } from '@mui/icons-material';
 
 const SidePanel = ({ algorithmName, algorithmSteps, isOpen, onClose }) => {
   return (

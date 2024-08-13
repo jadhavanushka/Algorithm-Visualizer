@@ -8,7 +8,7 @@ import Menu from './menu';
 import './PathFindingVisualizer.css';
 import ComplexityAnalysis from '../Components/ComplexityAnalysis';
 import SidePanel from '../Components/sidepanel';
-import { ListRounded } from '@material-ui/icons';
+import { ListRounded } from '@mui/icons-material';
 
 // Define the algorithms with their functions, steps, time complexity, and space complexity
 const algorithms = [
