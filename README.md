@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Algorithm Visualizer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Algorithm Visualizer is an interactive web application designed to help users understand and explore various algorithms and data structures through interactive visualizations and real-time simulations.
+Built using React, along with FlipMove and GSAP for animations, this project aims to make learning DSA both accessible and interactive.
 
-## Available Scripts
+Check out the live site [here](https://algorithm-visualizer-tau-one.vercel.app/).
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Interactive Visualizations:** Animate and visualize different algorithms and data structures.
+- **Customizable Parameters:** Adjust input sizes, animation speeds, and view real-time performance metrics.
+- **User Control:** Interactive elements allowing users to manipulate visualizations and see step-by-step execution.
+- **Algorithm Support:** Includes visualizations for data structures, sorting algorithms, graph algorithms, etc.
+- **Educational Content:** Detailed information about each algorithm, including time and space complexity, and comparative graphs.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Included Algorithms
 
-### `npm test`
+- **Data Structures:** Linked List, Stack, Queue, Binary Search Tree
+- **Sorting Algorithms:** Bubble Sort, Insertion Sort, Selection Sort, Quick Sort
+- **Search Algorithms:** Binary Search
+- **Recursive Sorts:** Merge Sort, Heap Sort, Quick Sort
+- **Pathfinding Algorithms:** Dijkstra's Algorithm, A* Algorithm, Breadth-First Search, Depth-First Search
+- **Minimum Spanning Trees:** Prim's Algorithm, Kruskal's Algorithm
+- **Other:** N-Queens Problem, Convex Hull (Graham Scan), Linear Regression
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run the Algorithm Visualizer locally, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/jadhavanushka/algorithm-visualizer.git
+   ```
+   ```bash
+   cd algorithm-visualizer
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Install Dependencies:**
+    ```bash
+    npm install
+    ```
 
-### `npm run eject`
+3. **Run the Application:**
+    ```bash
+    npm start
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. Open Your Browser:\
+Navigate to http://localhost:3000 to view the application. 
